@@ -1,0 +1,149 @@
+@charset "UTF-8"
+
+/* 共通部分
+---------------------------------- */
+html {
+  font-size: 100%;
+}
+body {
+  font-family: "Yu Gothic", "游ゴシック　Medium", "YuGothic", "游ゴシック体", "ピラギノ角ゴ　Pro W3", "sans-serif";
+  line-height: 1.5;
+  color: #3C3C3C;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+
+/* 共通ページ枠
+---------------------------------- */
+.wrapper {
+  max-width: 1210px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+/* HEADER
+---------------------------------- */
+header {
+  background-color: #2A7EB1;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+}
+.logo-img {
+  width: 200px;
+  height: auto;
+  margin-top: 17px;
+}
+.header-items ul {
+  list-style: none;
+  display: flex;
+  line-height: 71px;
+  letter-spacing: 0.075em;
+  /* letter-spacing: 0.074em; */
+  margin-right: -1px;
+}
+.header-items li {
+  margin-left: 25px;
+}
+.fine-adjustment {
+  margin-left: 2px;
+}
+.header-items a {
+  color: #FFFFFF;
+}
+
+
+/* MAIN VISUAL
+---------------------------------- */
+#main-visual {
+  background-image: url(../images/mv.jpg);
+  width: 100%;
+  height: 270px;
+  margin-top: 70px;
+}
+.big-bg {
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* ARTICLE
+---------------------------------- */
+article {
+  margin-top: 54px;
+}
+/* 見出し */
+.headline {
+  margin-bottom: 54px;
+}
+/* ネイビーブロック */
+.headline a {
+  background-color: #2A7EB1;
+  width: 6px;
+  height: 26px;
+  display: inline-block;
+  margin-right: 15px;
+}
+/* タイトル */
+.headline h2 {
+  font-size: 36px;
+  line-height: 1;
+  display: inline-block;
+  letter-spacing: 0.015em;
+}
+/* グリッド */
+.grid-box {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 160px;
+}
+/* ボックス */
+.box {
+  width: 360px;
+  height: 360px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 0 rgba(17,51,72,.2);
+  /* text-align: center; */
+  padding: 20px;
+}
+.cat-img {
+  width: 320px;
+  height: auto;
+  vertical-align: bottom;
+  margin-bottom: 18px;
+}
+.box p {
+  letter-spacing: -0.062em;
+  padding-left: 1px;
+}
+
+
+/* FOOTER
+---------------------------------- */
+footer {
+  width:100%;
+  height: 64px;
+  background-color: #B3B3B3;
+  text-align: center;
+}
+footer p {
+  font-size: 12px;
+  color: #707070;
+  line-height: 1;
+  padding-top: 28px;
+  padding-bottom: 24px;
+  margin-left: 14px;
+  letter-spacing: 0.075em;
+}

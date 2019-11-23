@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <link href="progate-study.css" rel="stylesheet">
+    </head>
+
+    <memo>
+        nest : 同じ構成要素が現れること
+        ease : 物をそっと動かす
+        even (number) : 偶数
+        odd (number) : 奇数
+    </memo>
+
+    <body>
+        【リンク範囲を広げる方法】-----------------------------------------------
+        ★ブロック要素をaタグで囲う。
+        ・ブロック要素をインライン要素で囲うことができる。
+        ・インライン要素をボックスとして使用可。
+        ・インライン要素をボックスとして装飾することができる。
+
+        [例]
+        <!-- HTML -->
+        <a href="" class="item">
+        	<div class="item-img">
+        		<img src="img/cat.jpg" alt="">
+        	</div><!-- /item-img -->
+        	<div class="item-body">
+        		<p>テキスト</p>
+        	</div><!-- /item-body -->
+        </a><!-- item -->
+
+        <!-- CSS -->
+        .items::after {
+        	clear: both;
+        	content: "";
+        	display: block;
+        }
+        .item {
+        	border-radius: 8px;
+        	box-shadow: 0 0 5px rgba(17, 51, 72, 0.2);
+        	color: #3c3c3c;
+        	float: left;
+        	margin: 0 50px 50px 0;
+        	padding: 20px 20px 22px 20px;
+        	text-decoration: none;
+        	transition: all 0.3s ease 0s;
+        	width: 360px;
+        }
+        .item:nth-child(3n) {
+        	margin-right: 0;
+        }
+        .item:hover {
+        	opacity: 0.6;
+        }
+        .item-img {
+        	margin-bottom: 22px;
+        	text-align: center;
+        }
+        .item-body p {
+        	line-height: 1.5;
+        	margin: 0;
+        }
+
+
+        【pタグ周辺に余分なスペースがあるとき】------------------------------------
+        margin: 0; を用いて周囲のスペースを消す。
+        ※ Sassの変数定義により、余分なスペースが出現するケースあり。
+
+
+        【sass】-------------------------------------------------------------
+        sass : syntactically awsome stylesheet
+               構文的にすごいスタイルシート
+        ★CSSの作業効率UP
+
+
+        【::before, ::after】---------------------------------------------------
+        擬似要素:before, :afterについて、以下解説する。
+        ::before : 付属要素の先頭に、before要素として入り込む。
+        ::after : 付属要素の末尾に、after要素として入り込む。
+
+        ★見えない「""(空)」を入れ込むことができる。
+        （空は存在なしと認識して良し。改行されることもない。）
+        ★CSSで追記することができる。
+        ★htmlファイルには書かれないので、SEOに関係ない。
+        ※擬似要素はデフォルトだとインライン要素
+
+        [例]
+        .items::before {
+          content: "『";
+        }
+        .items::after {
+          content: "』";
+        }
+        .items::after {
+          content: "";
+        }
+
+        content : 擬似要素に入れる内容
+
+
+        【floatによる回り込みの解除】--------------------------------------------
+        ★clear: both;　をfloat要素でない、回り込ませたくない要素に適用する。
+         both = left & right
+
+          [例_1]
+          □ □ ■　← 回り込み
+
+          □ : float
+          ■ : floatでない
+
+          ■ に「clear: both;」を適用すると↓
+
+          □ □ ← float
+          ■ ← clear: both;
+
+          [例_2]
+          -----------
+          □ □ □
+
+          □ がすべて浮いてしまっているため、ボックスの高さが0に
+
+          ボックス末尾に「””(空)」を挿入し、
+          ""(空)にclear: both;を適用すると、
+          ボックスの中身の空が回り込まないため、
+          ボックスが維持される。
+
+          |-------|
+          | □ □ □ |
+          |     空|
+          |-------|
+
+          .items::after {
+            content: "";
+            display: block;
+            clear: both;
+          }
+
+
+        【transition】--------------------------------------------------------
+        アニメーションの変化を調整する。
+
+        [例]
+        transition: all 0.3s ease 0;
+        all : 変化時間を0.3secとする。
+        ease : 変化開始時間を0secとする。
+
+
+        【:nth-child】--------------------------------------------------------
+        擬似クラス:nth-childを使うことで、
+        連続する要素を選択的に指定できる。
+
+        [例]
+        item
+        item
+        ★item
+        item
+        item
+        ★item
+
+        3の倍数にある要素のみを指定したいとする。
+
+        .item:nth-child(3n) {
+          margin-right: 0;
+        }
+
+
+        【strong】------------------------------------------------------------
+        文章をタグで囲うだけで、「太字」にできる。
+
+        [例]
+        <strong>太字</strong>
+        <b>同上（※意味付けはない）</b>
+
+
+        【em】----------------------------------------------------------------
+        文章をタグで囲うだけで、「斜字」にできる。
+
+        [例]
+        <em>斜字</em>
+        <i>同上（※意味付けはない）</i>
+
+
+        【sup, sub】----------------------------------------------------------
+        sup : 上付きの文字を表現（乗数など）
+        sub : 下付きの文字を表現（化学式など）
+
+        [例]
+        <p>256<sup>3</sup></p>
+        <p>H<sub>2</sub>O</p>
+
+
+        【hr】----------------------------------------------------------------
+        下線を引く（※意味付けはない）
+        記述方法：brタグと同じ(単体で書く)
+
+        [例]
+        <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
